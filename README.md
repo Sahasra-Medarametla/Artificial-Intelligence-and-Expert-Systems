@@ -1,4 +1,4 @@
-###Breadth First Search (BFS)  
+**###Breadth First Search (BFS)**  
 ```text
 CREATE empty Queue Q
 CREATE empty set Visited
@@ -19,7 +19,7 @@ WHILE Q is not empty DO
 END WHILE
 ```
 
-###Depth First Search (DFS)
+**###Depth First Search (DFS)**
 ```text
 CREATE empty set Visited
 
@@ -39,7 +39,7 @@ DFS_Visit(Node)
 END DFS_Visit
 ```
 
-###Uniform Cost Search (UCS)
+**###Uniform Cost Search (UCS)**
 ```text
 CREATE PriorityQueue PQ
 INSERT (StartNode, Cost = 0) into PQ
@@ -65,7 +65,7 @@ WHILE PQ not empty DO
 END WHILE
 ```
 
-###Water Jug Problem
+**###Water Jug Problem**
 ```text
 DEFINE initial state (x, y)
 
@@ -99,7 +99,7 @@ WHILE Q not empty DO
 END WHILE
 ```
 
-###A* Search Algorithm
+**###A Star(*) Search Algorithm**
 ```text
 CREATE PriorityQueue OPEN
 CREATE set CLOSED
@@ -135,7 +135,7 @@ WHILE OPEN not empty DO
 END WHILE
 ```
 
-###Greedy Best First Search (GBFS)
+**###Greedy Best First Search (GBFS)**
 ```text
 CREATE PriorityQueue OPEN
 INSERT StartNode into OPEN
@@ -161,7 +161,7 @@ WHILE OPEN not empty DO
 END WHILE
 ```
 
-###Mini-Max Algorithm
+**###Mini-Max Algorithm**
 ```text
 FUNCTION Minimax(Node, Depth, IsMax)
 
@@ -191,7 +191,7 @@ ELSE
 END IF
 ```
 
-###Alpha-Beta Pruning
+**###Alpha-Beta Pruning**
 ```text
 FUNCTION AlphaBeta(Node, Depth, α, β, IsMax)
 
@@ -231,7 +231,7 @@ ELSE
 END IF
 ```
 
-###Decision Tree (ID3 Algorithm)
+**###Decision Tree**
 ```text
 FUNCTION ID3(Data, Attributes)
 
@@ -265,4 +265,54 @@ FOR each value v of BestAttribute DO
 END FOR
 
 RETURN DecisionNode
+```
+
+**###Forward and Backward Propagation (Neural Network)**
+```text
+FUNCTION NeuralNetwork(x1, x2, weights, y_actual)
+
+DEFINE sigmoid function
+    f(x) = 1 / (1 + e^(-x))
+
+Step 1: Forward Propagation
+
+a3 ← (x1 * w13) + (x2 * w23)
+y3 ← f(a3)
+
+a4 ← (x1 * w14) + (x2 * w24)
+y4 ← f(a4)
+
+a5 ← (y3 * w35) + (y4 * w45)
+y  ← f(a5)
+
+Step 2: Calculate Old Error
+
+Error_old ← y_actual − y
+
+Step 3: Backward Propagation
+
+UPDATE weights using error correction rule
+
+w_new ← w_old + Δw
+
+Step 4: Forward Propagation Again
+
+a3 ← (x1 * w13_new) + (x2 * w23_new)
+y3 ← f(a3)
+
+a4 ← (x1 * w14_new) + (x2 * w24_new)
+y4 ← f(a4)
+
+a5 ← (y3 * w35_new) + (y4 * w45_new)
+y_new ← f(a5)
+
+Step 5: Calculate New Error
+
+Error_new ← y_actual − y_new
+
+Step 6: Error Difference
+
+Error_difference ← Error_new − Error_old
+
+RETURN Error_old, Error_new, Error_difference
 ```
